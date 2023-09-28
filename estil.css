@@ -1,5 +1,15 @@
-#map ¨{
+h1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     text-align: center;
     position: relative;
     margin:auto;
+    color:rgb(12, 12, 185);
+}
+
+#map {
+  
+    text-align: center;
+    position: relative;
+    margin:auto;
+    margin-top: 20px;
 }
