@@ -1,43 +1,7 @@
-<!DOCTYPE html>
-<html lang="cat">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SNORQUEL A BCN</title>
 
-    <!--Link a les llibreries de Leaflet-->
+/*Creem el mapa base*/
 
-    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css"
-    />
-    <!--Link a l  arxiu  d estils -->
-
-    <link rel="stylesheet" href="estil.css" />
-
-    <!--Links als arxius de capes -->
-
-    <script type="text/javascript" src="./capa.js"></script>
-    <script type="text/javascript" src="./Itineraris_forum.js"></script>
-    <script type="text/javascript" src="./Limit_zona_forum.js"></script>
-    <script type="text/javascript" src="./Profunditat_forum.js"></script>
-  </head>
-
-  <body>
-    <header>
-      <h1>ESNORQUEL A BARCELONA</h1>
-      <nav class="navegador">
-        <a href="./index.html">INICI</a>
-        <a href="./Itineraris.html">ITINERARIS</a>
-        <a href="./especies .html">ESPECIES</a>
-      </nav>
-    </header>
-    <main>
-      <div id="mapa1"></div>
-      <!--<script type="text/javascript" src="./Gestio_de_capes.js"></script>-->
-      <script>
-        var mapa_piscines = L.map("mapa1").setView([41.409919, 2.226921], 18);
+ var mapa_piscines = L.map("mapa1").setView([41.409919, 2.226921], 18);
 
         /* Capa base satelit*/
 
@@ -116,7 +80,3 @@
         };
 
         var controlCapas = L.control.layers(conjunt_capes).addTo(mapa_piscines);
-      </script>
-    </main>
-  </body>
-</html>
