@@ -22,7 +22,7 @@
       
       /*Paleta de colors capa habitats*=======================*/
 
-        function getColor(Tipus_habi) {
+        function getColor1(Tipus_habi) {
           return Tipus_habi == "Fons de  llim"
             ? "#BD0026"
             : Tipus_habi == "Parets de ciment"
@@ -40,7 +40,7 @@
 
         function style1(feature) {
           return {
-            fillColor: getColor(feature.properties.Tipus_habi),
+            fillColor: getColor1(feature.properties.Tipus_habi),
             weight: 2,
             opacity: 0.3,
             color: "black",
@@ -49,11 +49,42 @@
           };
         }
 
+
         function popup(feature, layer) {
           if (feature.properties && feature.properties.Tipus_habi) {
             layer.bindPopup(feature.properties.Tipus_habi);
           }
         }
+/*  Format capa itinerari==================*/
+
+        function getColor2(Dificultat){
+          return Dificultat == "Facil"
+          ? "#FEB24C"
+          : Dificultat == "Dificil" ? "#FED976"
+          :"FEB24C";
+        }
+
+      
+        function style2(feature) {
+          return {
+            weight: 3,
+            opacity: 0.3,
+            color: getColor2(feature.properties.Dificultat),
+            dashArray: "1",
+            fillOpacity: 0.7,
+          };
+        }
+
+
+        function popup2(feature, layer) {
+          if (feature.properties && feature.properties.Dificultat) {
+            layer.bindPopup(feature.properties.Dificultat);
+          }
+        }
+
+
+
+
         ambient_GJson = L.geoJson(capa, {
           style: style1,
           onEachFeature: popup,
@@ -68,7 +99,7 @@
 
         /*Capa itineraris*/
 
-        itin_GJson = L.geoJson(itineraris).addTo(mapa_piscines);
+        itin_GJson = L.geoJson(itineraris,{style:style2, onEachFeature:popup2}).addTo(mapa_piscines);
 
         /* gestio de capes*/
 
