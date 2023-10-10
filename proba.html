@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+    function trovalong(){
+      navigator.geolocation.getCurrentPosition((position) => {
+        var x;
+        x = position.coords.longitude;
+        var poscio_actual = L.marker([x, y], {
+            title: "Augusta Emerita",
+            draggable:false,
+            opacity: 0.75
+            }).bindPopup("<i>Augusta Emerita</i>")
+            .addTo(map)
+      })};
+
+     document.write(x)
+      
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <p id="long"></p>
+  <body></body>
+</html>

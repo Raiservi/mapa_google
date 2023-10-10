@@ -9,14 +9,31 @@
   margin-left: 20px;
 }
 
+  
 
+ section{
+  display: block;
+  flex-direction: row;
+}
+.text{
+  margin: auto;
+  margin-left:5px;
+  margin-right:300px;
+}
 
 .map {
-  text-align: center;
-  position: relative;
+  /* text-align: center; */
+
   margin: auto;
   margin-top: 20px;
+  margin-left: 100px;
   width: 430px;
   height: 430px;
   box-shadow: 5px 5px 5px #888;
+}
+
+button {
+  display: block;
+  text-align: center;
+
 }

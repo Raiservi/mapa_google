@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Posicio actual</title>
 
-  
     <!--Link a l  arxiu  d estils -->
 
     <link rel="stylesheet" href="estil.css" />
@@ -17,7 +16,6 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css"
     />
-
   </head>
 
   <body>
@@ -28,18 +26,50 @@
         <a href="./1_gestioCapes.html">Gestio de Capes</a>
         <a href="./2_geolocalitzacio .html">Posicio actual</a>
         <a href="./3_obtencioCoorde.html">Obtencio de coordenades del planol</a>
-        <a href="./4_representacCoord.html">Representacio de coordenades en el plànol</a>
-        <a href="./5_consumAPI.html">Consum API de Minka i representacio en taula</a>
-        </nav>
+        <a href="./4_representacCoord.html"
+          >Representacio de coordenades en el plànol</a
+        >
+        <a href="./5_consumAPI.html"
+          >Consum API de Minka i representacio en taula</a
+        >
+      </nav>
     </header>
+
     <main>
-      <main>
-        <h3>Proves de gestio de geolocalització</h3>
-        <div class= "map" id="mapa2"> </div>
-        <script type="text/javascript" src="./Scripts/mapaPosicioActual.js"></script>
-        
-     
-      </main>
+      <h3>Proves de gestio de geolocalització</h3>
+      <section >
+      <div class="text">
+        <p>
+          El aquest apartat obtenim tots els valors del geoposicionament
+          coordinades, i precisió i les mostrem en el document automaticament
+          amb la funcio de geoposicionament de HTML5
+        </p>
+        <p>Els valors son els següents:</p>
+        <ul>
+          <li>Longitut: <span id="x"></span></li>
+          <li>Latitut: <span id="y"></span></li>
+          <li>Precisió: <span id="prec"></span></li>
+        </ul>
+
+        <p>
+          Seguidament amb el botó 'Mostrar opsició afegim un marcador al mapa i
+          un pop up que s activa al pasar el ratolí sobre la xinxeta
+        </p>
+        <input
+          type="button"
+          id="obtenir"
+          value="Mostar posicio"
+          onclick="trovalong()"
+        />
+
+        <input type="button" value="Ocultar posicio" onclick="ocultar()" />
+      </div>
+      <div class="map" id="mapa2"></div>
+      <script
+        type="text/javascript"
+        src="./Scripts/mapaPosicioActual.js"
+      ></script>
+    </section>
     </main>
   </body>
 </html>
