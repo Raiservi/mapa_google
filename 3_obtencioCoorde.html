@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Obtencio coordenades mapa</title>
 
-  
     <!--Link a l  arxiu  d estils -->
 
     <link rel="stylesheet" href="estil.css" />
@@ -17,7 +16,6 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css"
     />
-
   </head>
 
   <body>
@@ -28,18 +26,57 @@
         <a href="./1_gestioCapes.html">Gestio de Capes</a>
         <a href="./2_geolocalitzacio .html">Posicio actual</a>
         <a href="./3_obtencioCoorde.html">Obtencio de coordenades del planol</a>
-        <a href="./4_representacCoord.html">Representacio de coordenades en el plànol</a>
-        <a href="./5_consumAPI.html">Consum API de Minka i representacio en taula</a>
-        </nav>
+        <a href="./4_representacCoord.html"
+          >Representacio de coordenades en el plànol</a
+        >
+        <a href="./5_consumAPI.html"
+          >Consum API de Minka i representacio en taula</a
+        >
+      </nav>
     </header>
     <main>
-      <main>
-        <h3>Proves de obtencio de coordenades a partir del plànol</h3>
-        <div class= "map" id="mapa2"> </div>
-        <script type="text/javascript" src="./Scripts/mapaPosicioActual.js"></script>
-        
-     
-      </main>
+      <h3>Proves de obtencio de coordenades a partir del plànol</h3>
+      <section>
+        <div class="text">
+          <p>
+            El aquest apartat selecionarem un punt en el mapa. Fent click
+            obtindrem les coordenades. Si ens interesa guardar les coordenades
+            cal polsar el botor guardar punt. Amb aquet boto creem un array on
+            es van guardan tots els punts. Si els bolem representar en el planol
+            cal polsar el boto "Representar" Si volem netejar el planol polsar
+            "Netejar punts"
+          </p>
+          <br />
+          <br />
+          <p>Les coordenades del punt seleccionat son:</p>
+          <ul>
+            <li>Longitut: <span id="xselec"></span></li>
+            <li>Latitut: <span id="yselec"></span></li>
+            <li>Precisió: <span id="precselec"></span></li>
+          </ul>
+
+          <p>
+            Seguidament amb el botó 'Mostrar guardar" guardem en memoria el
+            marcador que figura en el mapa
+          </p>
+          <br />
+          <input
+            type="button"
+            id="guardar"
+            value="Guardar posicio"
+            onclick="guardarPunt()"
+          />
+
+          <input type="button" value="Netejar mapa" onclick="ocultar()" />
+
+          <input type="button" value="Mostrar punts" onclick="mostarPunts()" />
+        </div>
+        <div class="map" id="mapa3"></div>
+        <script
+          type="text/javascript"
+          src="./Scripts/mapaObtencioCoord.js"
+        ></script>
+      </section>
     </main>
   </body>
 </html>
