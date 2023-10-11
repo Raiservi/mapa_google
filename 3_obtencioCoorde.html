@@ -52,7 +52,6 @@
           <ul>
             <li>Longitut: <span id="xselec"></span></li>
             <li>Latitut: <span id="yselec"></span></li>
-            <li>Precisió: <span id="precselec"></span></li>
           </ul>
 
           <p>
@@ -67,14 +66,14 @@
             onclick="guardarPunt()"
           />
 
-          <input type="button" value="Netejar mapa" onclick="ocultar()" />
+          <input type="button" value="Netejar mapa" onclick="netejar()" />
 
           <input type="button" value="Mostrar punts" onclick="mostarPunts()" />
         </div>
         <div class="map" id="mapa3"></div>
         <script
           type="text/javascript"
-          src="./Scripts/mapaObtencioCoord.js"
+          src="./Scripts/3_mapaObtencioCoord.js"
         ></script>
       </section>
     </main>
