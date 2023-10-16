@@ -1,19 +1,86 @@
-* {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+
+
+/*Format de l encapcalment i navegador-----------------*/
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar-toggler {
-  text-align: left;
-  position: relative;
+
+nav {
+  max-width: 1200px;
   margin: auto;
-  margin-left: 20px;
+  margin-top: 10px;
 }
+
+header nav ul li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #290c91;
+  padding: 15px 20px;
+  display: block;
+  font-size: 1.3rem;
+  transition: all 0.4s ease-in-out;
+  background-color: rgb(136, 158, 186);
+}
+
+nav ul li a:hover {
+  background: #338aed;
+  color: #000;
+}
+
+@media only screen and (max-width: 768px) {
+  header nav ul li {
+    display: block;
+    margin-right: 0;
+  }
+
+  nav ul li a {
+    text-align: center;
+  }
+}
+
+header {
+  background-color: rgba(35, 19, 105, 0.301);
+  padding: 10px 20px;
+  font-family: "Calibri", "Gill Sans MT", "Trebuchet MS", sans-serif;
+  font-weight: bold;
+  opacity: 1;
+  font-size: x-large;
+  display: block;
+}
+
+header h1 {
+  position: relative;
+  padding: 5px 3px;
+  display: grid;
+  place-content: center;
+  color: #1d0477;
+}
+
+main {
+  background-color: rgb(220, 235, 197);
+  min-height:  100vh;
+  
+}
+
 
   
 
  section{
   display: block;
   flex-direction: row;
+  margin-left: 40px;
 }
 
 .text{
@@ -28,8 +95,8 @@
   margin: auto;
   margin-top: 20px;
   margin-left: 100px;
-  width: 430px;
-  height: 430px;
+  width: 550px;
+  height: 500px;
   box-shadow: 5px 5px 5px #888;
 }
 

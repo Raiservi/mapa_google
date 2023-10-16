@@ -124,6 +124,9 @@ function mostrarPunts(){
     .addTo(mapaObtencioCoord);}
 }
 
+//==========================================================================================
+// Per afegir una taula amb la informacio de cada punt guardat en la matriu.
+
 // document.write("<table width=200 border=1 cellpadding=1 cellspacing=1>");
 
 //       var i, j;

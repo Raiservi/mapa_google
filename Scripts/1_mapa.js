@@ -1,9 +1,10 @@
 
 /*Creem el mapa base*/
 
- var mapa_piscines = L.map("mapa1").setView([41.409919, 2.226921], 18);
+ var mapa_piscines = L.map("mapa1").setView([41.40869899, 2.2263300418853764], 17);
 
         /* Capa base satelit*/
+
 
         L.tileLayer(
           "http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}",
@@ -24,11 +25,11 @@
 
         function getColor1(Tipus_habi) {
           return Tipus_habi == "Fons de  llim"
-            ? "#BD0026"
+            ? "#800080"
             : Tipus_habi == "Parets de ciment"
-            ? "#888"
+            ? "##FFFFFF"
             : Tipus_habi == "Area de grans roques"
-            ? "#FED976"
+            ? "##008000"
             : Tipus_habi == "Base de ciment amb sorra"
             ? "#FEB24C"
             : Tipus_habi == "Escales ciment"
@@ -59,8 +60,8 @@
 
         function getColor2(Dificultat){
           return Dificultat == "Facil"
-          ? "#FEB24C"
-          : Dificultat == "Dificil" ? "#FED976"
+          ? "#0000FF"
+          : Dificultat == "Dificil" ? "#FF0000"
           :"FEB24C";
         }
 
@@ -68,7 +69,7 @@
         function style2(feature) {
           return {
             weight: 3,
-            opacity: 0.3,
+            opacity: 0.8,
             color: getColor2(feature.properties.Dificultat),
             dashArray: "1",
             fillOpacity: 0.7,
@@ -90,9 +91,7 @@
           onEachFeature: popup,
         }).addTo(mapa_piscines);
 
-        /*  Capa profunditat*=======================*/
-
-        profund_GJson = L.geoJson(profunditat).addTo(mapa_piscines);
+        
 
         /* Capa zona foum*/
         zona_GJson = L.geoJson(limit).addTo(mapa_piscines);
@@ -104,10 +103,31 @@
         /* gestio de capes*/
 
         var conjunt_capes = {
-          Profunditat: profund_GJson,
           Limit: zona_GJson,
           Habitats: ambient_GJson,
           Itineraris: itin_GJson,
         };
 
         var controlCapas = L.control.layers(conjunt_capes).addTo(mapa_piscines);
+
+// cREACIO DE LA LLEGENDA
+
+        var legend = L.control({position: 'bottomright'});
+
+    legend.onAdd = function (map) {
+
+      var div = L.DomUtil.create('div', 'info legend'),
+        grades = ["Dificil", "Facil"],
+        labels = [];
+
+    // loop through our density intervals and generate a label with a colored square for each interval
+    for (var i = 0; i < grades.length; i++) {
+        div.innerHTML +=
+            '<i style="background:' + getColor2(grades[i] + 1) + '"></i> ' +
+            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
+    }
+
+    return div;
+};
+
+legend.addTo(mapa1);

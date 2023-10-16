@@ -28,20 +28,46 @@
     <header>
       <h1>PROVES AMB LEAFLET I API´s</h1>
       <nav class="navegador">
-        <a href="./index.html">Inici</a>
-        <a href="./1_gestioCapes.html">Gestio de Capes</a>
-        <a href="./2_geolocalitzacio .html">Posicio actual</a>
-        <a href="./3_obtencioCoorde.html">Obtencio de coordenades del planol</a>
-        <a href="./4_representacCoord.html">Representacio de coordenades en el plànol</a>
-        <a href="./5_consumAPI.html">Consum API de Minka i representacio en taula</a>
-        </nav>
+        <ul>
+          <li><a href="./index.html">Inici</a></li>
+          <li><a href="./1_gestioCapes.html">Gestio de Capes</a></li>
+          <li><a href="./2_geolocalitzacio .html">Posicio actual</a></li>
+          <li>
+            <a href="./3_obtencioCoorde.html"
+              >Obtencio de coordenades del planol</a
+            >
+          </li>
+          <li>
+            <a href="./4_representacCoord.html"
+              >Representacio de coordenades en el plànol</a
+            >
+          </li>
+          <li>
+            <a href="./5_consumAPI.html"
+              >Consum API de Minka i representacio en taula</a
+            >
+          </li>
+        </ul>
+      </nav>
     </header>
     <main>
       <h3>Proves de gestio de capes</h3>
-      <div class="map" id="mapa1"></div>
-      <script type="text/javascript" src="./Scripts/1_mapa.js"></script>
-      
-    
+      <section>
+        <div class="text">
+          <p>
+            El aquest apartat es mostra com es poden seleccionar la
+            visulaitzacio de diferentes capes <br />
+            en un planol fet amb leaflet. Cal obrir el menu en la part superior
+            dreta per seleccionar les diferentes capesbr Les capes estan creades
+            amb GeoJson amb el SIG QGIS. 
+          </p>
+         
+        </div>
+
+        <div class="map" id="mapa1"></div>
+
+        <script type="text/javascript" src="./Scripts/1_mapa.js"></script>
+      </section>
     </main>
   </body>
 </html>
