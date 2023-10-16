@@ -71,7 +71,7 @@ header h1 {
 main {
   background-color: rgb(220, 235, 197);
   min-height:  100vh;
-  
+  font-family: "Calibri", "Gill Sans MT", "Trebuchet MS", sans-serif;
 }
 
 
