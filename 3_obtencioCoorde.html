@@ -23,57 +23,128 @@
       <h1>PROVES AMB LEAFLET I API´s</h1>
       <nav class="navegador">
         <ul>
-      <li><a href="./index.html">Inici</a></li>
-      <li><a href="./1_gestioCapes.html">Gestio de Capes</a></li>
-      <li><a href="./2_geolocalitzacio .html">Posicio actual</a></li>
-      <li><a href="./3_obtencioCoorde.html">Obtencio de coordenades del planol</a></li>
-      <li><a href="./4_representacCoord.html">Representacio de coordenades en el plànol</a></li>
-      <li><a href="./5_consumAPI.html">Consum API de Minka i representacio en taula</a></li>
-    </ul>
+          <li><a href="./index.html">Inici</a></li>
+          <li><a href="./1_gestioCapes.html">Gestio de Capes</a></li>
+          <li><a href="./2_geolocalitzacio .html">Posicio actual</a></li>
+          <li>
+            <a href="./3_obtencioCoorde.html"
+              >Obtencio de coordenades del planol</a
+            >
+          </li>
+          <li>
+            <a href="./4_representacCoord.html"
+              >Representacio de coordenades en el plànol</a
+            >
+          </li>
+          <li>
+            <a href="./5_consumAPI.html"
+              >Consum API de Minka i representacio en taula</a
+            >
+          </li>
+        </ul>
       </nav>
     </header>
     <main>
-      <h3>Proves de obtencio de coordenades a partir del plànol</h3>
-      <section>
-        <div class="text">
-          <p>
-            El aquest apartat selecionarem un punt en el mapa. Fent click
-            obtindrem les coordenades. Si ens interesa guardar les coordenades
-            cal polsar el botor guardar punt. Amb aquet boto creem un array on
-            es van guardan tots els punts. Si els bolem representar en el planol
-            cal polsar el boto "Representar" Si volem netejar el planol polsar
-            "Netejar punts"
-          </p>
-          <br />
-          <br />
-          <p>Les coordenades del punt seleccionat son:</p>
-          <ul>
-            <li>Longitut: <span id="xselec"></span></li>
-            <li>Latitut: <span id="yselec"></span></li>
-          </ul>
+      <div class="cent">
+        <h2>Proves de obtencio de coordenades a partir del plànol</h2>
+        <section>
+          <div class="text">
+            <p>
+              El aquest apartat selecionarem un punt en el mapa. <br />
+              Fent click sobre el lloc desitjat del mapa obtindrem les
+              coordenades,que ens apareixen en el següent requadre:
+            </p>
+            <ul class="coord">
+              <li>Longitut: <span id="xselec"></span></li>
+              <li>Latitut: <span id="yselec"></span></li>
+            </ul>
 
-          <p>
-            Seguidament amb el botó 'Mostrar guardar" guardem en memoria el
-            marcador que figura en el mapa
-          </p>
-          <br />
-          <input
+              <p>
+              Si ens interesa guardar les coordenades d aquet punt seleccionat
+              cal polsar el boto <em>Guardar posicio</em>. Al pulsar el boto ens apareixera un quadre de dialeg on tindrem <br>
+              d indicar el nom  de lubicacio que li asignarem al punt.
+            </p>
+
+            <input
+              type="button"
+              id="guardar"
+              value="Guardar posicio"
+              onclick="afegirMemoria()"
+            />
+
+            <p>
+              Per fer desapareixer en qualsevol moment els punts que apareixen
+              el planol <br />
+              podem pulsar el boto <em>Netejar mapa</em> . Els punts guardats
+              quedaran en memoria <br />
+              pero desapareixen del planol
+            </p>
+
+            <input type="button" value="Netejar mapa" onclick="netejar()" />
+
+            <p>
+              Per visualitzar tots els punts guardats en l array cal pulsar el
+              boto <em>Mostrar punts</em> <br />
+              Es mostraran tots els punts . <br />
+              Si clickem sobre la xinxeta ens apareixera un popup amb tota la
+              informacio relativa al punt, que es: 
+              <ul>
+                <li>Nº de punt</li>
+                <li>Nom de l ubicacio</li>
+                <li>Latitut</li>
+                <li>Longitut</li>
+              </ul>
+            </p>
+            <p>Pulsan el boto <em>Crear taula</em> fem apareixer sota el mapa una taula amb tots els punts <br>
+               i la seva corresponent informacio </p>
+            <br />
+
+            <input
+              type="button"
+              value="Mostrar punts"
+              onclick="mostrarPunts()"
+            />
+
+            <input
             type="button"
-            id="guardar"
-            value="Guardar posicio"
-            onclick="afegirMemoria()"
+            id="crear_taula"
+            value="Crear taula"
+            onclick="genera_taula()"
           />
 
-          <input type="button" value="Netejar mapa" onclick="netejar()" />
+            <br />
 
-          <input type="button" value="Mostrar punts" onclick="mostrarPunts()" />
-        </div>
-        <div class="map" id="mapa3"></div>
-        <script
-          type="text/javascript"
-          src="./Scripts/3_mapaObtencioCoord.js"
-        ></script>
+            <p>
+              Per esborrar la memoria de l array on hi han tots els punts cal
+              pulsar el boto <em>Borrar punts en memoria</em>. <br />
+              Amb aquesta accio s esborren del mapa i de la memoria tots els
+              punts
+            </p>
+            <br />
+
+            <input
+              type="button"
+              id="borrar_memo"
+              value="Borrar punts en memoria"
+              onclick="borrarMemoriaArray()"
+            />
+       
+
+          </div>
+        </section>
+
+      <section class="mapa_taula">
+        
+          <div class="map" id="mapa3">  </div>
+          <script
+            type="text/javascript"
+            src="./Scripts/3_mapaObtencioCoord.js"
+          ></script>
+        
+    
       </section>
+    
+  </div>
     </main>
   </body>
 </html>

@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Representacio de coordinades en un planol</title>
 
-  
     <!--Link a l  arxiu  d estils -->
 
     <link rel="stylesheet" href="estil.css" />
@@ -17,30 +16,89 @@
       rel="stylesheet"
       href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css"
     />
-
   </head>
 
   <body>
     <header>
       <nav class="navegador">
         <ul>
-      <li><a href="./index.html">Inici</a></li>
-      <li><a href="./1_gestioCapes.html">Gestio de Capes</a></li>
-      <li><a href="./2_geolocalitzacio .html">Posicio actual</a></li>
-      <li><a href="./3_obtencioCoorde.html">Obtencio de coordenades del planol</a></li>
-      <li><a href="./4_representacCoord.html">Representacio de coordenades en el plànol</a></li>
-      <li><a href="./5_consumAPI.html">Consum API de Minka i representacio en taula</a></li>
-    </ul>
+          <li><a href="./index.html">Inici</a></li>
+          <li><a href="./1_gestioCapes.html">Gestio de Capes</a></li>
+          <li><a href="./2_geolocalitzacio .html">Posicio actual</a></li>
+          <li>
+            <a href="./3_obtencioCoorde.html"
+              >Obtencio de coordenades del planol</a
+            >
+          </li>
+          <li>
+            <a href="./4_representacCoord.html"
+              >Representacio de coordenades en el plànol</a
+            >
+          </li>
+          <li>
+            <a href="./5_consumAPI.html"
+              >Consum API de Minka i representacio en taula</a
+            >
+          </li>
+        </ul>
       </nav>
     </header>
     <main>
-      <main>
-        <h3>Proves de representacio de coordenades en un plànol</h3>
-        <div class= "map" id="mapa2"> </div>
-        <script type="text/javascript" src="./Scripts/mapaPosicioActual.js"></script>
-        
-     
-      </main>
+      <div class="cent">
+        <h2>Proves de representacio de coordenades en un plànol</h2>
+        <section>
+          <div class="text">
+            <form action="">
+              <ul>
+                <li>
+                  <label class="label" for="especie"> Especie observada:</label>
+                  <input class="input" type="text" name="especie" id="specie" />
+                </li>
+                <li>
+                  <label class="label" for="indret"> Nom de l indret:</label>
+                  <input class="input" type="text" name="indret" id="place" />
+                </li>
+                <li>
+                  <label class="label" for="longitut">Longiitut:</label>
+                  <input class="input" type="text" name="longitut" id="long" />
+                </li>
+                <li>
+                  <label class="label" for="latitut">Latitut:</label>
+                  <input class="input" type="text" name="latitut" id="lat" />
+                </li>
+                <li>
+                  <label class="label" for="data">Dia de l observació:</label>
+                  <input class="input" type="date" name="data" id="dat" />
+                </li>
+                <li>
+                  <label class="label" for="imatge">Imatge associada</label>
+                  <input
+                    class="input"
+                    type="image"
+                    name="imatge"
+                    src=""
+                    alt=""
+                  />
+                </li>
+                <label for="comentari">Observacions:</label>
+                <textarea id="comentari">
+                  Enntri aqui els comentaris de l observacio
+                  </textarea
+                >
+              </ul>
+
+              <li class="button">
+                <button type="submit">Envíe su mensaje</button>
+              </li>
+            </form>
+          </div>
+          <div class="map" id="mapa2"></div>
+          <script
+            type="text/javascript"
+            src="./Scripts/mapaPosicioActual.js"
+          ></script>
+        </section>
+      </div>
     </main>
   </body>
 </html>

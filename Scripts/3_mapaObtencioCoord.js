@@ -56,7 +56,7 @@ function afegirPopup(){
 
   pop_up_complet= ("Nom de la posicio:" + info_popup +"<br>"+ 
 
-  "La posicio seleccionada és:"+"<br>"+
+  "La posicio seleccionada és:"+ posicioVectorPunts +"<br>"+
 
   "Longitut:  "+x_sele+"<br>"+"Latitut:  "+y_sele);
   }
@@ -84,13 +84,15 @@ function netejar(){
 
 var memoriaMarkers = new Array ();
 
+var  posicioVectorPunts;
+
 function afegirMemoria(){
 
-var  posicioVectorPunts = memoriaMarkers.length;
+posicioVectorPunts= memoriaMarkers.length;
 
 afegirPopup();
 
-var markIntermedi = new Array(y_sele,x_sele,pop_up_complet);
+var markIntermedi = new Array(posicioVectorPunts,info_popup,x_sele,y_sele,pop_up_complet);
 
   
 
@@ -117,32 +119,69 @@ function mostrarPunts(){
   for(i=0;i<posicioVectorPunts;i+=1) {
    
 
-  xinxeta[i]=L.marker().setLatLng([memoriaMarkers[i][0],memoriaMarkers[i][1]])
+  xinxeta[i]=L.marker().setLatLng([memoriaMarkers[i][3],memoriaMarkers[i][2]])
   
-  .bindPopup(memoriaMarkers[i][2])
+  .bindPopup(memoriaMarkers[i][4])
 
     .addTo(mapaObtencioCoord);}
+   
 }
+
+//=======================================================================================
+//Funcio per borrar contingut de la matriu
+
+function borrarMemoriaArray(){
+netejar()
+memoriaMarkers=[]
+Eliminar_taula()
+}
+function Eliminar_taula() {
+  for (i=0;i<=posicioVectorPunts;i+=1){
+  document.getElementsByTagName("table")[0].setAttribute("id","tableid");
+  document.getElementById("tableid").deleteRow(i);
+ }}
+
+
+
 
 //==========================================================================================
 // Per afegir una taula amb la informacio de cada punt guardat en la matriu.
 
-// document.write("<table width=200 border=1 cellpadding=1 cellspacing=1>");
 
-//       var i, j;
+function genera_taula() {
+  // Otenim on farem apareixer la taula
+   var body = document.getElementsByTagName("section")[0];
 
-//       for(i=0;i<posicioVectorPunts;i+=1) {
-//         document.write("<tr>");
+  // Creem una  <table> i un  <tbody>
+  var taula = document.createElement("table");
+  var tblBody = document.createElement("tbody");
+  
+  // Creem les fileres iterant
+  for (var i = 0; i<=posicioVectorPunts ; i++) {
+   
+    var filera = document.createElement("tr");
+// Per una filera omplim totes les seves variables
+    for (var j = 0; j <4; j++) {
+      // Crea un element <td> i un node de text,  el node de
+      // text es el contingut de <td>, despres ubica l element <td> al final
+      // de la filera de la taula
+      var cela = document.createElement("td");
+      var textCela = document.createTextNode(
+        memoriaMarkers[i][j],
+      );
+      cela.appendChild(textCela);
+      filera.appendChild(cela);
+    }
 
-//         document.write("<td><b>" + posicioVectorPunts[i] + "</b></td>");
+    // agrega la filera al final de la taula (al final de l element tblbody)
 
-//         for (j = 0; j =1;) {
-//           document.write("<td>" + memoriaMarkers[i][j] + "</td>");
-//         }
-//         document.write("</tr>");
-//       }
-//       document.write("</table>");
+    tblBody.appendChild(filera);
+  }
 
-
-
-//==============================================================================================================
+  // posiciona el <tbody> sota del element <table>
+  taula.appendChild(tblBody);
+  
+  body.appendChild(taula);
+  
+  taula.setAttribute("border", "2");
+}
