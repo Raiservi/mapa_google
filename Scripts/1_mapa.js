@@ -6,20 +6,24 @@
         /* Capa base satelit*/
 
 
-        L.tileLayer(
+       var satelit= L.tileLayer(
           "http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}",
           {
             maxZoom: 18,
           }
-        ).addTo(mapa_piscines);
+        );
 
         /* Capa base open street*/
 
-        /* Control de  capa base/
+        /* Control de  capa base*/
       
+       var analogic = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mapa_piscines);//per defecte faig apareixer aquet//
+       
+       
       
-      
-      
+       var baseMaps = {
+        "OpenStreetMap":analogic,
+        "GoogleMaps": satelit}
       
       /*Paleta de colors capa habitats*=======================*/
 
@@ -89,16 +93,16 @@
         ambient_GJson = L.geoJson(capa, {
           style: style1,
           onEachFeature: popup,
-        }).addTo(mapa_piscines);
+        });
 
         
 
         /* Capa zona foum*/
-        zona_GJson = L.geoJson(limit).addTo(mapa_piscines);
+        zona_GJson = L.geoJson(limit);
 
         /*Capa itineraris*/
 
-        itin_GJson = L.geoJson(itineraris,{style:style2, onEachFeature:popup2}).addTo(mapa_piscines);
+        itin_GJson = L.geoJson(itineraris,{style:style2, onEachFeature:popup2});
 
         /* gestio de capes*/
 
@@ -108,26 +112,8 @@
           Itineraris: itin_GJson,
         };
 
-        var controlCapas = L.control.layers(conjunt_capes).addTo(mapa_piscines);
+        var controlCapas = L.control.layers(baseMaps,conjunt_capes).addTo(mapa_piscines);
 
 // cREACIO DE LA LLEGENDA
 
-        var legend = L.control({position: 'bottomright'});
-
-    legend.onAdd = function (map) {
-
-      var div = L.DomUtil.create('div', 'info legend'),
-        grades = ["Dificil", "Facil"],
-        labels = [];
-
-    // loop through our density intervals and generate a label with a colored square for each interval
-    for (var i = 0; i < grades.length; i++) {
-        div.innerHTML +=
-            '<i style="background:' + getColor2(grades[i] + 1) + '"></i> ' +
-            grades[i] + (grades[i + 1] ? '&ndash;' + grades[i + 1] + '<br>' : '+');
-    }
-
-    return div;
-};
-
-legend.addTo(mapa1);
+   

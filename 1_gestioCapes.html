@@ -33,43 +33,38 @@
           <li><a href="./1_gestioCapes.html">Gestio de Capes</a></li>
           <li><a href="./2_geolocalitzacio .html">Posicio actual</a></li>
           <li>
-            <a href="./3_obtencioCoorde.html"
-              >Obtencio de coordenades</a
-            >
+            <a href="./3_obtencioCoorde.html">Obtencio de coordenades</a>
           </li>
           <li>
-            <a href="./4_representacCoord.html"
-              >Representacio de coordenades</a
-            >
+            <a href="./4_representacCoord.html">Representacio de coordenades</a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <div class="cent">
-        <h2>Proves de gestio de capes</h2>
-        <section>
-          <div class="text">
-            <p>
-              El aquest apartat es mostra com es poden seleccionar la
-              visualitzacio de diferentes capes en un planol fet amb Leaflet.<br />
-              Les capes estan creades amb GeoJson amb el SIG QGIS. Cal obrir el
-              menu en la part superior dreta per seleccionar les diferentes
-              capes. <br />
-              Les capes diponibles son:
-            </p>
-            <ul>
-              <li>Límit de les piscines del Forum</li>
-              <li>Habitats de les piscines del Forum</li>
-              <li>Itineraris de les piscines</li>
-            </ul>
-          </div>
+      <h2>Proves de gestio de capes</h2>
+      <section class="block_inline">
+        <div class="text" id="">
+          <p>
+            El aquest apartat es mostra com es poden seleccionar la
+            visualitzacio de diferentes capes en un planol fet amb Leaflet.<br />
+            Les capes estan creades amb GeoJson amb el SIG QGIS. Cal obrir el
+            menu en la part superior dreta per seleccionar les diferentes capes.
+            <br />
+            Les capes diponibles son:
+          </p>
+          <ul>
+            <li>Límit de les piscines del Forum</li>
+            <li>Habitats de les piscines del Forum</li>
+            <li>Itineraris de les piscines</li>
+          </ul>
+        </div>
+      </section>
+      <section class="block_inline" id="block_mapa">
+        <div class="map" id="mapa1"></div>
 
-          <div class="map" id="mapa1"></div>
-
-          <script type="text/javascript" src="./Scripts/1_mapa.js"></script>
-        </section>
-      </div>
+        <script type="text/javascript" src="./Scripts/1_mapa.js"></script>
+      </section>
     </main>
   </body>
 </html>

@@ -8,12 +8,12 @@ var mapaForm = L.map("mapa4").setView([41.41, 2.226921], 5);
 
 // Afegim capa base satelit
  
- L.tileLayer(
-  "http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}",
+
+  L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png').addTo(mapaForm),
   {
      maxZoom: 18,
    }
- ).addTo(mapaForm);
+ .addTo(mapaForm);
 
 
 //Agafem les dades del formulari========================================

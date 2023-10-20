@@ -64,6 +64,7 @@ header h1 {
 /* format del cos de la pagina============================================*/
 
 main {
+  align-items: center;
   text-align: center;
   background-color: rgb(220, 235, 197);
   min-height: 100vh;
@@ -78,6 +79,11 @@ h2 {
   text-align: left;
   margin-left: 400px;
   padding-top: 10px;
+}
+
+.introduccio {
+  text-align: center;
+  margin-left: 500px;
 }
 
 .block_inline {
@@ -192,13 +198,13 @@ table {
   margin-left: 50px;
   border-color: hsl(0, 0%, 3%);
   background-color: hwb(0 98% 2%);
-  border:1;
+  border: 1;
 }
 
- th {
+th {
   background: #080101;
   color: white;
-} 
+}
 .rad {
   display: inline-block;
   margin-left: 75px;
