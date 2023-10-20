@@ -103,7 +103,7 @@
         /* gestio de capes*/
 
         var conjunt_capes = {
-          Limit: zona_GJson,
+          Limit: zona_GJson ,
           Habitats: ambient_GJson,
           Itineraris: itin_GJson,
         };

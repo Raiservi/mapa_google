@@ -1,15 +1,7 @@
-/*Format de l encapcalment i navegador-----------------
-*,
-::before,
-::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-*/
+/*Format de l encapcalment i navegador====================================*/
 
 nav {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: auto;
   margin-top: 10px;
 }
@@ -20,6 +12,7 @@ header nav ul li {
   margin-right: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 nav ul li a {
@@ -48,6 +41,8 @@ nav ul li a:hover {
   }
 }
 
+/* Format dels encapçalaments==========================================*/
+
 header {
   background-color: rgba(35, 19, 105, 0.301);
   padding: 10px 20px;
@@ -66,7 +61,10 @@ header h1 {
   color: #1d0477;
 }
 
+/* format del cos de la pagina============================================*/
+
 main {
+  text-align: center;
   background-color: rgb(220, 235, 197);
   min-height: 100vh;
   font-family: "Calibri", "Gill Sans MT", "Trebuchet MS", sans-serif;
@@ -77,36 +75,41 @@ em {
 }
 
 h2 {
+  text-align: left;
+  margin-left: 400px;
   padding-top: 10px;
-  margin-left: 45px;
 }
 
-section {
-  display: block;
+.block_inline {
+  display: inline-block;
   flex-direction: row;
-  margin-left: 40px;
+  width: 500px;
+  margin: auto;
+  margin-top: 50px;
+  vertical-align: top;
 }
 
 .text {
-  margin: auto;
-  margin-left: 5px;
-  margin-right: 300px;
+  text-align: left;
+  margin-left: 30px;
+  margin-right: 30px;
 }
 
 .map {
-  /* text-align: center; */
-
-  margin: auto;
-  margin-top: 20px;
-  margin-left: 100px;
+  /* margin: auto;
+  margin-top: 50px;*/
+  margin-left: 20px;
+  margin-top: 30px;
   width: 550px;
   height: 500px;
   box-shadow: 5px 5px 5px #888;
 }
 
-button {
+.button {
   display: block;
   text-align: center;
+  padding-left: 25px;
+  padding-left: 25px;
 }
 
 .coord {
@@ -114,20 +117,21 @@ button {
   color: #02330e;
   padding-top: 10px;
   padding-bottom: 20px;
-  margin-right: 1000px;
+  margin-right: 220px;
 }
 
-/*==============================================*/
+/*Format del formualari ==============================================*/
 
 form {
-  /* Centrar el formulario en la página */
-  margin: 0 auto;
-  width: 500px;
-  /* Esquema del formulario */
+  /* Centrar el formulari en la pagina */
+  width: 350px;
+  margin-left: 10px;
+  /* Esquema del formulari */
   padding: 1em;
   border: 1px solid #ccc;
   border-radius: 1em;
   color: rgb(0, 16, 16);
+  background-color: #a1aebc;
 }
 
 form ul {
@@ -137,28 +141,26 @@ form ul {
 }
 
 form li + li {
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 
 form label {
-  /* Tamaño y alineación uniforme */
+  /* Tamany i alineacio uniforme */
   display: inline-block;
   width: 150px;
   text-align: right;
 }
 
 form input,
-form textarea {
-  /* Para asegurarse de que todos los campos de texto tienen la misma configuración de letra
-     Por defecto, las áreas de texto tienen un tipo de letra monoespaciada */
-  font: 1em sans-serif;
+form select form textarea {
+  /* Tots els caps de texte tenen el mateix tiups de lletra*/
 
-  /* Tamaño uniforme del campo de texto */
-  width: 300px;
+  width: 150px;
   box-sizing: border-box;
 
-  /* Hacer coincidir los bordes del campo del formulario */
+  /* Fem coincidir els costats dels camps del formulari  */
   border: 1px solid #999;
+  margin-bottom: 5px;
 }
 
 form input:focus,
@@ -175,30 +177,30 @@ form textarea {
   height: 5em;
 }
 
-.button {
-  /* Alinear los botones con los campos de texto */
-  padding-left: 90px; /* mismo tamaño que los elementos de la etiqueta */
-}
-
 form button {
-  /* Este margen adicional representa aproximadamente el mismo espacio que el espacio
-     entre las etiquetas y sus campos de texto */
-  margin-left: 0.5em;
-}
-.cent {
-  margin-left: 300px;
+  /* Alinear */
+  margin: auto;
+  margin-top: 15px;
+  text-align: center;
+  padding: 5px 5px 5px 5px;
 }
 
-#mapa_taula{
-  display: inline-block;
-}
+/*format de la taula=================*/
 
 table {
- margin-top: 15px;
- margin-left: 50px;
-  border: 2;
-  border-color: #e00c0c;
+  margin-top: 30px;
+  margin-left: 50px;
+  border-color: hsl(0, 0%, 3%);
+  background-color: hwb(0 98% 2%);
+  border:1;
 }
 
-
-
+ th {
+  background: #080101;
+  color: white;
+} 
+.rad {
+  display: inline-block;
+  margin-left: 75px;
+  align-items: center;
+}

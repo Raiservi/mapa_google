@@ -20,85 +20,99 @@
 
   <body>
     <header>
+      <h1>PROVES AMB LEAFLET I API s</h1>
       <nav class="navegador">
         <ul>
           <li><a href="./index.html">Inici</a></li>
           <li><a href="./1_gestioCapes.html">Gestio de Capes</a></li>
           <li><a href="./2_geolocalitzacio .html">Posicio actual</a></li>
           <li>
-            <a href="./3_obtencioCoorde.html"
-              >Obtencio de coordenades del planol</a
-            >
+            <a href="./3_obtencioCoorde.html">Obtencio de coordenades</a>
           </li>
           <li>
             <a href="./4_representacCoord.html"
-              >Representacio de coordenades en el plànol</a
-            >
-          </li>
-          <li>
-            <a href="./5_consumAPI.html"
-              >Consum API de Minka i representacio en taula</a
-            >
+              >Representacio de coordenades <br />
+            </a>
           </li>
         </ul>
       </nav>
     </header>
     <main>
-      <div class="cent">
-        <h2>Proves de representacio de coordenades en un plànol</h2>
-        <section>
-          <div class="text">
-            <form action="">
-              <ul>
-                <li>
-                  <label class="label" for="especie"> Especie observada:</label>
-                  <input class="input" type="text" name="especie" id="specie" />
-                </li>
-                <li>
-                  <label class="label" for="indret"> Nom de l indret:</label>
-                  <input class="input" type="text" name="indret" id="place" />
-                </li>
-                <li>
-                  <label class="label" for="longitut">Longiitut:</label>
-                  <input class="input" type="text" name="longitut" id="long" />
-                </li>
-                <li>
-                  <label class="label" for="latitut">Latitut:</label>
-                  <input class="input" type="text" name="latitut" id="lat" />
-                </li>
-                <li>
-                  <label class="label" for="data">Dia de l observació:</label>
-                  <input class="input" type="date" name="data" id="dat" />
-                </li>
-                <li>
-                  <label class="label" for="imatge">Imatge associada</label>
-                  <input
-                    class="input"
-                    type="image"
-                    name="imatge"
-                    src=""
-                    alt=""
-                  />
-                </li>
-                <label for="comentari">Observacions:</label>
-                <textarea id="comentari">
-                  Enntri aqui els comentaris de l observacio
-                  </textarea
-                >
-              </ul>
-
-              <li class="button">
-                <button type="submit">Envíe su mensaje</button>
+      <h2>Proves de representacio de coordenades en un plànol</h2>
+      <section class="block_inline">
+        <div class="text" id="">
+          <form action="">
+            <ul>
+              <li>
+                <label class="label" for="especie"> Especie observada:</label>
+                <select id="llistat" name="especie">
+                  <option value="1">Parablenius tentacularis</option>
+                  <option value="2">Diplodus sargus</option>
+                  <option value="3">Chromis chromis</option>
+                  <option value="4">Sparus aurata</option>
+                </select>
               </li>
-            </form>
-          </div>
-          <div class="map" id="mapa2"></div>
-          <script
-            type="text/javascript"
-            src="./Scripts/mapaPosicioActual.js"
-          ></script>
-        </section>
-      </div>
+              <li>
+                <label class="label" for="mariterres">Tipus d especie :</label>
+                <ul>
+                  <li>
+                    <input
+                      class="rad"
+                      type="radio"
+                      value="Terrestre"
+                      name="mariterres"
+                      id="terrestre"
+                    />Terrestre
+                  </li>
+                  <li>
+                    <input
+                      class="rad"
+                      type="radio"
+                      value="Marina"
+                      name="mariterres"
+                      id="marina"
+                    />Marina
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <label class="label" for="indret"> Nom de l indret:</label>
+                <input class="input" type="text" name="indret" id="place" />
+              </li>
+              <li>
+                <label class="label" for="longitut">Longiitut:</label>
+                <input class="input" type="text" name="longitut" id="long" />
+              </li>
+              <li>
+                <label class="label" for="latitut">Latitut:</label>
+                <input class="input" type="text" name="latitut" id="lat" />
+              </li>
+              <li>
+                <label class="label" for="data">Dia de l observació:</label>
+                <input class="input" type="date" name="data" id="dat" />
+              </li>
+              <br />
+              <label for="comentari">Observacions:</label>
+              <textarea id="comentari"> </textarea>
+            </ul>
+
+            <input
+              type="button"
+              value="Enviar dades  al form"
+              onclick="DadesForm()"
+            />
+          </form>
+        </div>
+      </section>
+
+      <section class="block_inline" id="block_mapa">
+        <div class="map" id="mapa4"></div>
+        <script
+          type="text/javascript"
+          src="Scripts\4_representacMapa.js"
+        ></script>
+      </section>
     </main>
   </body>
 </html>

@@ -5,7 +5,7 @@ var mapaObtencioCoord = L.map("mapa3").setView([41.65, 2.196921], 8);
 
 // Afegim capa base satelit
  
- L.tileLayer(
+L.tileLayer(
   "http://www.google.cn/maps/vt?lyrs=s@189&gl=cn&x={x}&y={y}&z={z}",
   {
      maxZoom: 20,
@@ -22,11 +22,12 @@ function onClick(click){
 
     var marcadorLoc = click.latlng;
 
-    document.getElementById('xselec').innerHTML = marcadorLoc.lng;
+    document.getElementById('selecx').innerHTML = marcadorLoc.lng;
 
-    document.getElementById('yselec').innerHTML = marcadorLoc.lat;
+    document.getElementById('selecy').innerHTML = marcadorLoc.lat;
 
     afegirMarker();
+
     }
 //===================================================================
 // Funcio per afegir el marker al mapa
@@ -37,9 +38,9 @@ var x_sele, y_sele;
 
 function afegirMarker(){
 
-    x_sele =parseFloat(document.getElementById('xselec').innerHTML);
+    x_sele =parseFloat(document.getElementById('selecx').innerHTML);
 
-    y_sele=parseFloat(document.getElementById('yselec').innerHTML);
+    y_sele=parseFloat(document.getElementById('selecy').innerHTML);
 
     marcador.setLatLng([y_sele,x_sele]).addTo(mapaObtencioCoord); 
 
@@ -52,95 +53,92 @@ var info_popup,pop_up_complet
 
 function afegirPopup(){
 
-  info_popup=prompt('Introduir el nom de la localitzacio del Marker:');
+      info_popup=prompt('Introduir el nom de la ubicacio del Marker:');
 
-  pop_up_complet= ("Nom de la posicio:" + info_popup +"<br>"+ 
+      pop_up_complet= ("Nom de la ubicacio:" + info_popup +"<br>"+ 
 
-  "La posicio seleccionada és:"+ posicioVectorPunts +"<br>"+
+      "El n de marker es :"+ punt_N +"<br>"+
 
-  "Longitut:  "+x_sele+"<br>"+"Latitut:  "+y_sele);
-  }
+      "Longitut:  "+x_sele+"<br>"+"Latitut:  "+y_sele);
+      }
 
 //===========================================================================
 // Funcio per netejar el marker
 
 function netejar(){
 
-  marcador.removeFrom(mapaObtencioCoord);
+  document.getElementById('selecx').innerHTML="";
 
-//Bucle per netejar del planol tots els punts de l array
+  document.getElementById('selecy').innerHTML="";
 
-  for(i=0;i<memoriaMarkers.length;i+=1) {
+      marcador.removeFrom(mapaObtencioCoord);
 
-  xinxeta[i].removeFrom(mapaObtencioCoord);}
+    //Bucle per netejar del planol tots els punts de l array
 
-  document.getElementById('xselec').innerHTML="";
+     for (var n=0 ; n<memoriaMarkers.length ; n+=1) {
 
-  document.getElementById('yselec').innerHTML="";
-}
+            xinxeta[n].removeFrom(mapaObtencioCoord);}
+
+   
+    }
 
 //============================================================================
 //Funcio per guardar el punts
 
 var memoriaMarkers = new Array ();
 
-var  posicioVectorPunts;
+var posicioVectorPunts=0,punt_N=0
 
 function afegirMemoria(){
 
-posicioVectorPunts= memoriaMarkers.length;
+      posicioVectorPunts= memoriaMarkers.length;
 
-afegirPopup();
+      punt_N =posicioVectorPunts+1
 
-var markIntermedi = new Array(posicioVectorPunts,info_popup,x_sele,y_sele,pop_up_complet);
+      afegirPopup();
 
-  
+      var markIntermedi = new Array(punt_N,info_popup,x_sele,y_sele,pop_up_complet);
 
-  memoriaMarkers[posicioVectorPunts]=markIntermedi;
-  
-  
+      memoriaMarkers[posicioVectorPunts]=markIntermedi;
 
-  alert ("S ha afegit el lloc anomentat  "+ info_popup+"  amb el nº de marcador "+ posicioVectorPunts);
+      alert ("S ha afegit una ubicacio anomenada  "+ info_popup+"  amb el nº de marker "+ punt_N);
 
- netejar();
+      posicioVectorPunts=1+posicioVectorPunts;
 
- posicioVectorPunts +=1;
-}
+      netejar()
+      }
 
 //=================================================================
 //Funcio per mostrar els punts
  
- var xinxeta = new Array()
+var xinxeta = new Array()
 
 function mostrarPunts(){
 
-   let posicioVectorPunts =memoriaMarkers.length
 
-  for(i=0;i<posicioVectorPunts;i+=1) {
-   
+      for(var m=0;m<memoriaMarkers.length;m+=1) {
+      
+          xinxeta[m]=L.marker().setLatLng([memoriaMarkers[m][3],memoriaMarkers[m][2]])
+          
+          .bindPopup(memoriaMarkers[m][4])
 
-  xinxeta[i]=L.marker().setLatLng([memoriaMarkers[i][3],memoriaMarkers[i][2]])
-  
-  .bindPopup(memoriaMarkers[i][4])
-
-    .addTo(mapaObtencioCoord);}
-   
-}
+          .addTo(mapaObtencioCoord);}
+      
+    }
 
 //=======================================================================================
 //Funcio per borrar contingut de la matriu
 
 function borrarMemoriaArray(){
-netejar()
-memoriaMarkers=[]
-Eliminar_taula()
-}
-function Eliminar_taula() {
-  for (i=0;i<=posicioVectorPunts;i+=1){
-  document.getElementsByTagName("table")[0].setAttribute("id","tableid");
-  document.getElementById("tableid").deleteRow(i);
- }}
 
+      memoriaMarkers=[];
+
+      netejar();
+
+      document.getElementsByTagName("table")[0].remove();
+
+      window.location.reload(); 
+    }
 
 
 
@@ -148,40 +146,59 @@ function Eliminar_taula() {
 // Per afegir una taula amb la informacio de cada punt guardat en la matriu.
 
 
-function genera_taula() {
-  // Otenim on farem apareixer la taula
-   var body = document.getElementsByTagName("section")[0];
+var vector_titol = ["Num de marker","Nom de la ubicacio","Longitut","Latitut"]
 
-  // Creem una  <table> i un  <tbody>
+function genera_taula() {
+
+// var indexTaula= document.getElementsByTagName("table")[0]
+// alert(indexTaula)
+
+
+
+//Mirem si la taula existeix. Si existeix. si existeix l esborrem, cas contari la creem
+  
+  // Obtindre la referencia del element section del planol
+  var body = document.getElementsByTagName("section")[1]
+
+  // Crea un element <table> i un element <tbody>
   var taula = document.createElement("table");
   var tblBody = document.createElement("tbody");
-  
-  // Creem les fileres iterant
-  for (var i = 0; i<=posicioVectorPunts ; i++) {
+  var titol= document.createElement("tr");
+
+  // Creem titol
+  for(var l=0;l<4;l+=1){
+        var encap= document.createElement("th");
+        var tetxEncap =document.createTextNode( vector_titol[l])
+        encap.appendChild(tetxEncap);
+        titol.appendChild(encap);
+          }
    
-    var filera = document.createElement("tr");
-// Per una filera omplim totes les seves variables
-    for (var j = 0; j <4; j++) {
-      // Crea un element <td> i un node de text,  el node de
-      // text es el contingut de <td>, despres ubica l element <td> al final
-      // de la filera de la taula
-      var cela = document.createElement("td");
-      var textCela = document.createTextNode(
-        memoriaMarkers[i][j],
-      );
-      cela.appendChild(textCela);
-      filera.appendChild(cela);
-    }
+    tblBody.appendChild(titol)
 
-    // agrega la filera al final de la taula (al final de l element tblbody)
+  // Crea las celdas
+          for (var i = 0; i < memoriaMarkers.length; i++) {
+          // Crea las fileras de la taula
+          var filera = document.createElement("tr");
 
-    tblBody.appendChild(filera);
-  }
+                        for (var j = 0; j < 4; j++) {
+                      
+                          var cella = document.createElement("td");
+                          var textCella = document.createTextNode(
+                            memoriaMarkers[i][j] 
+                          );
+                          cella.appendChild(textCella);
+                          filera.appendChild(cella);
+                        }
 
-  // posiciona el <tbody> sota del element <table>
+          // agrega la filera al final de la taula (al final de l element tblbody)
+          tblBody.appendChild(filera);
+        }
+
+  // posiciona  <tbody> sota l element <table>
   taula.appendChild(tblBody);
-  
+  // afegeix <table> dins de  <section[1]>
   body.appendChild(taula);
+  taula.setAttribute("border", "2")
   
-  taula.setAttribute("border", "2");
+  
 }

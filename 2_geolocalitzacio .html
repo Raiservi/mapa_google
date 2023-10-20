@@ -27,39 +27,28 @@
           <li><a href="./1_gestioCapes.html">Gestio de Capes</a></li>
           <li><a href="./2_geolocalitzacio .html">Posicio actual</a></li>
           <li>
-            <a href="./3_obtencioCoorde.html"
-              >Obtencio de coordenades del planol</a
-            >
+            <a href="./3_obtencioCoorde.html">Obtencio de coordenades</a>
           </li>
           <li>
-            <a href="./4_representacCoord.html"
-              >Representacio de coordenades en el plànol</a
-            >
-          </li>
-          <li>
-            <a href="./5_consumAPI.html"
-              >Consum API de Minka i representacio en taula</a
-            >
+            <a href="./4_representacCoord.html">Representacio de coordenades</a>
           </li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <div class="cent">
       <h2>Proves de gestio de geolocalització</h2>
-      <section>
+      <div class="block_inline">
         <div class="text">
           <p>
             El aquest apartat obtenim el geoposicionament del dispositiu
-            conectat a Internet <br />
-            utilitzant les funcions de geoposicionament apreses en el modul
-            anterior de HTML5. <br />
+            conectat a Internet utilitzant les funcions de geoposicionament
+            apreses en el modul anterior de HTML5. <br />
             El parametres obtinguts son coordinades,precisió i es mostrem en el
             document automaticament. <br />
             Aprofitemm els coneixemenets de Leaflet per representar aquets punts
-            sobre un planol googleMaps i fent zoom <br />
-            al maxim valor un cop es troba la posició. <br />
+            sobre un planol googleMaps i fent zoom al maxim valor un cop es
+            troba la posició. <br />
           </p>
           <p>Els valors son els següents:</p>
           <ul class="coord">
@@ -84,19 +73,21 @@
           />
 
           <p>
-            Al donar al boto <em> Ocultar posicio </em> el que fem es tornar a la posició
-            inicial del mapa, borrem la capa on hi ha la xinxeta i tornem a
-            nivell de zoom baix
+            Al donar al boto <em> Ocultar posicio </em> el que fem es tornar a
+            la posició inicial del mapa, borrem la capa on hi ha la xinxeta i
+            tornem a nivell de zoom baix
           </p>
 
           <input type="button" value="Ocultar posicio" onclick="ocultar()" />
         </div>
+      </div>
+
+      <div class="block_inline">
         <div class="map" id="mapa2"></div>
         <script
           type="text/javascript"
           src="./Scripts/2_mapaPosicioActual.js"
         ></script>
-      </section>
       </div>
     </main>
   </body>
